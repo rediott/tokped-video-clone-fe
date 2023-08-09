@@ -2,32 +2,36 @@ import { Card, CardHeader, CardBody, CardFooter, Stack, Button, Divider, Text, H
 import { Link } from "react-router-dom";
 import { Wrap, WrapItem } from '@chakra-ui/react'
 
+
+
 const Videocard = ({thumbnail,title,video,creator}) => {
     return(
-        <WrapItem>
-        <Card maxW='sm'>
-        <CardBody>
-          <Image
+      
+        <Card maxW='sm'
+       
+         overflow='hidden'
+         variant='outline'>
+        
+        <Link to={video}>
+        <Image
+            objectFit='cover'
             src={thumbnail}
-            borderRadius='lg'
           />
-          <Stack mt='6' spacing='3'>
-            <Heading size='md'>{title}</Heading>
-            <Text color='blue.600' fontSize='sm'>
+        </Link>
+        
+        <CardBody>
+   
+          <Stack spacing='2'>
+
+            <Heading size='sm'><Link to={video}>{title}</Link></Heading>
+            <Text color='blue.600' fontSize='small'>
+              
              {creator}
             </Text>
           </Stack>
         </CardBody>
-        <Divider />
-        <CardFooter>
-          <ButtonGroup spacing='2'>
-            <Button variant='solid' colorScheme='blue'>
-            <Link to={video}>Watch</Link>
-            </Button>
-          </ButtonGroup>
-        </CardFooter>
       </Card>
-      </WrapItem>
+     
     )
 
 }

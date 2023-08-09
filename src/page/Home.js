@@ -1,8 +1,11 @@
 import Videocard from "../components/Videocard";
-import { Container } from '@chakra-ui/react'
-import { Wrap, WrapItem } from '@chakra-ui/react'
-import { Flex, Spacer, HStack } from '@chakra-ui/react'
 import { useEffect,useState } from 'react';
+import { SimpleGrid } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
+import { Center, Square, Circle, AbsoluteCenter } from '@chakra-ui/react'
+import { Text } from '@chakra-ui/react'
+import { Heading } from '@chakra-ui/react'
+
 
 
 const Home = () =>{
@@ -33,11 +36,19 @@ const Home = () =>{
 
     return(
         <>
-        <Flex>
-      <HStack spacing='24px'>
-           {renderVideo}
-      </HStack>
-     </Flex>
+       
+        <Box w='100%' p={16}>
+           
+            <Heading as='h2' size='xl' textAlign="center" mb="16">
+                  Video yang Cocok Menemani waktu Makan
+            </Heading>
+            
+
+        <SimpleGrid columns={4} spacing={10}>
+             {renderVideo}
+        </SimpleGrid>
+        </Box>
+
         </>
     )
 }
