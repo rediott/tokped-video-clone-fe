@@ -37,9 +37,9 @@ const Home = () =>{
     return(
         <>
        
-        <Box w='100%' p={16}>
+        <Box w='100%' px={12} py={10}>
            
-            <Heading as='h2' size='xl' textAlign="center" mb="16">
+            <Heading as='h2' size='xl' textAlign="center" mb="12">
                   Video yang Cocok Menemani waktu Makan
             </Heading>
             
