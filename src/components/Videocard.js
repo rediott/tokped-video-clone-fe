@@ -4,7 +4,9 @@ import { Wrap, WrapItem } from '@chakra-ui/react'
 
 
 
-const Videocard = ({thumbnail,title,video,creator}) => {
+const Videocard = ({thumbnail,title,video,creator,id}) => {
+
+    const vidLink = "http://localhost:3000/video/"+id
     return(
       
         <Card maxW='sm'
@@ -12,7 +14,7 @@ const Videocard = ({thumbnail,title,video,creator}) => {
          overflow='hidden'
          variant='outline'>
         
-        <Link to={video}>
+        <Link to = {vidLink}>
         <Image
             objectFit='cover'
             src={thumbnail}
@@ -23,7 +25,7 @@ const Videocard = ({thumbnail,title,video,creator}) => {
    
           <Stack spacing='2'>
 
-            <Heading size='sm'><Link to={video}>{title}</Link></Heading>
+            <Heading size='sm'><Link to={vidLink}>{title}</Link></Heading>
             <Text color='blue.600' fontSize='small'>
               
              {creator}
