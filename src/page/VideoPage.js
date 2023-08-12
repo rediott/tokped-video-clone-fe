@@ -7,13 +7,15 @@ import VideoDisplay from "../components/VideoDisplay";
 import { Grid, GridItem } from '@chakra-ui/react'
 import ProductCard from "../components/ProductCard";
 import { SimpleGrid } from '@chakra-ui/react'
+import { Divider } from '@chakra-ui/react'
+import Comment from "../components/Comment";
 
 const VideoPage = () =>{
     const {id} =  useParams();
    
     const [video] = useFetch("http://localhost:4000/api/get/video/:"+parseInt(id));
     const [product] = useFetch("http://localhost:4000/api/getAll/product");
-
+    const [comment] = useFetch("http://localhost:4000/api/getAll/comment/:"+parseInt(id))
     
     function shuffleArray(array) {
             let i = array.length - 1;
@@ -33,6 +35,12 @@ const VideoPage = () =>{
         )
        });
 
+    const renderComment = comment.map((item) => {
+        return(
+            <Comment username={item.username} comment={item.comment} />
+        )
+    })
+
     return(
        
         <>
@@ -47,13 +55,17 @@ const VideoPage = () =>{
 
                 
                 <GridItem rowSpan={4} >
-                     <VideoDisplay title={video.title} video = {video.video} />
+                     <VideoDisplay title={video.title} video = {video.video} creator ={video.creator}/>
                 </GridItem>
 
                 <GridItem rowSpan={4} >
+                <Divider orientation='horizontal' mb="8"  borderWidth= '1px'/>
                     <Heading as='h3' size='lg' mb="12">
                          Comment Section
                     </Heading>
+                    <SimpleGrid columns={1} spacing={4}>
+                      {renderComment}
+                    </SimpleGrid>
                 </GridItem>
 
                 </Grid>
@@ -64,6 +76,9 @@ const VideoPage = () =>{
 
             <GridItem rowSpan={4} colSpan={2} >
                 <Box w='100%' px={4}>
+                <Heading as='h3' size='lg' mb="8">
+                        Products For You 
+                 </Heading>
                     <SimpleGrid columns={1} spacing={4}>
                            {renderProduct}
                     </SimpleGrid>
