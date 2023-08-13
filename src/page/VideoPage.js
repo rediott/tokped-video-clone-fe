@@ -9,6 +9,7 @@ import ProductCard from "../components/ProductCard";
 import { SimpleGrid } from '@chakra-ui/react'
 import { Divider } from '@chakra-ui/react'
 import Comment from "../components/Comment";
+import CommentForm from "../components/CommentForm";
 
 const VideoPage = () =>{
     const {id} =  useParams();
@@ -63,6 +64,9 @@ const VideoPage = () =>{
                     <Heading as='h3' size='lg' mb="12">
                          Comment Section
                     </Heading>
+                    <CommentForm index ={id}/>
+                    <Divider orientation='horizontal' py="6" />
+
                     <SimpleGrid columns={1} spacing={4}>
                       {renderComment}
                     </SimpleGrid>
