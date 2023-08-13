@@ -17,7 +17,9 @@ const VideoPage = () =>{
     const [video] = useFetch("http://localhost:4000/api/get/video/:"+parseInt(id));
     const [product] = useFetch("http://localhost:4000/api/getAll/product");
     const [comment] = useFetch("http://localhost:4000/api/getAll/comment/:"+parseInt(id))
-    
+    const [renderedComments, setRenderedComments] = useState([]);
+
+
     function shuffleArray(array) {
             let i = array.length - 1;
             for (; i > 0; i--) {
@@ -38,9 +40,17 @@ const VideoPage = () =>{
 
     const renderComment = comment.map((item) => {
         return(
-            <Comment username={item.username} comment={item.comment} />
+            <Comment username={item.username} comment={item.comment} createdAt={item.createdAt}/>
         )
     })
+
+    const addCommentToRender = (newComment) => {
+        setRenderedComments((prevComments) => [...prevComments, newComment]);
+      };
+
+    const autoRenderComment = renderedComments.map((item, index) => (
+        <Comment key={index} username={item.username} comment={item.comment}  createdAt={item.createdAt}/>
+    ));
 
     return(
        
@@ -64,11 +74,14 @@ const VideoPage = () =>{
                     <Heading as='h3' size='lg' mb="12">
                          Comment Section
                     </Heading>
-                    <CommentForm index ={id}/>
+                    <CommentForm index ={id} addCommentToRender={addCommentToRender}/>
                     <Divider orientation='horizontal' py="6" />
 
                     <SimpleGrid columns={1} spacing={4}>
-                      {renderComment}
+
+                    {autoRenderComment}
+                    {renderComment}
+                    
                     </SimpleGrid>
                 </GridItem>
 

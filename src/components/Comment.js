@@ -1,7 +1,7 @@
 import { Card, CardHeader, CardBody, CardFooter,Heading,Box,Text, Image, Flex } from '@chakra-ui/react'
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 
-const Comment = ({username,comment,createdAt}) =>{
+const Comment = ({username,comment, createdAt}) =>{
 
     return(
         <>

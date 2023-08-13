@@ -12,7 +12,7 @@ import {
 
   import { useEffect,useState } from 'react';
 
-const CommentForm = ({index}) =>{
+const CommentForm = ({ index, addCommentToRender }) =>{
     const [username, setUsername] = useState('');
     const [comment, setComment] = useState('');
   
@@ -37,6 +37,7 @@ const CommentForm = ({index}) =>{
           setUsername('');
           setComment('');
           // You can also show a success message to the user
+          addCommentToRender(newComment);
           console.log('Comment submitted successfully!');
           alert('Comment submitted successfully!');
           
@@ -69,10 +70,11 @@ const CommentForm = ({index}) =>{
                 maxW="560px"  mt="1"
                 />
              </FormControl>
-
+            <FormControl>
              <Button type="submit" colorScheme="blue" mt="6" display={{ base:"block"}}>
                 Submit
             </Button>
+            </FormControl>
 
     </VStack>
         </>
