@@ -2,7 +2,10 @@ import { Card, CardHeader, CardBody, CardFooter,Heading,Box,Text, Image, Flex } 
 import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react'
 
 const Comment = ({username,comment, createdAt}) =>{
-
+      console.log(typeof(createdAt))
+      const dates = new Date(createdAt)
+      const datesText = dates.toString();
+     
     return(
         <>
         <Card
@@ -25,7 +28,7 @@ const Comment = ({username,comment, createdAt}) =>{
             </Heading>
 
             <Text  fontSize='xs' mt="1" ml="4">
-              {createdAt}
+              {datesText.slice(0, -34)}
             </Text>
 
             </Flex>
