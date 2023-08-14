@@ -1,3 +1,12 @@
+# Introduction
+This is the front end web apps for GIGIH 3.0 FINAL PROJECT By Raihan Mufid Setiadi. This app is an simple video streaming plaftorm with features such as
+1. List of video menu
+2. Video player
+3. Product Recomendaditon Section
+4. Comment
+5. simple navigation
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
