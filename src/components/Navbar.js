@@ -7,7 +7,7 @@ const Navbar = () =>{
     return(
         <>
         <nav>
-            <h2><Link to="/">YouSoup</Link></h2> 
+            <h2><Link to="/">TokoPakEdi Play</Link></h2> 
         </nav>
         </>
     )

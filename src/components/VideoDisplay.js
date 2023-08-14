@@ -1,7 +1,7 @@
 import { Heading, Text } from '@chakra-ui/react'
 import { AspectRatio } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
-import { Divider } from '@chakra-ui/react'
+
 
 const VideoDisplay = ({title,video,creator}) =>{
     return(
