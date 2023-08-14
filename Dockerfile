@@ -22,8 +22,8 @@ FROM nginx:alpine
 # Copy the built frontend app from the builder stage to the production image
 COPY --from=builder /app/build /usr/share/nginx/html
 
-# Expose the port that Nginx listens on (usually 80)
-EXPOSE 80
+# Expose the port that Nginx listens on do not change the port
+EXPOSE 3000
 
 # Command to start Nginx when the container starts
 CMD ["nginx", "-g", "daemon off;"]
